@@ -7,9 +7,15 @@ var baseConfig = require('./base');
 // Add needed plugins here
 var BowerWebpackPlugin = require('bower-webpack-plugin');
 
+// Setup for Nitrous dev server
+var devServerUrl = 'http://127.0.0.1:8000';
+if (process.env.NITROUS_USERNAME) {
+  devServerUrl = 'http://' + process.env.HOSTNAME + ':' + process.env.NITROUS_PREVIEW_PORT;
+}
+
 var config = _.merge({
   entry: [
-    'webpack-dev-server/client?http://127.0.0.1:8000',
+    'webpack-dev-server/client?' + devServerUrl,
     'webpack/hot/only-dev-server',
     './src/index'
   ],
