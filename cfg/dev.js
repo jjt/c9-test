@@ -10,7 +10,12 @@ var BowerWebpackPlugin = require('bower-webpack-plugin');
 // Setup for Nitrous dev server
 var devServerUrl = 'http://127.0.0.1:8000';
 if (process.env.NITROUS_USERNAME) {
-  devServerUrl = 'http://' + process.env.HOSTNAME + ':' + process.env.NITROUS_PREVIEW_PORT;
+  devServerUrl = [
+    'http://',
+    process.env.HOSTNAME,
+    '.nitrousapp.com:',
+    process.env.NITROUS_PREVIEW_PORT
+  ].join('');
 }
 
 var config = _.merge({
