@@ -1,0 +1,6 @@
+{
+  "generator-react-webpack": {
+    "appName": "c9Test",
+    "style": "css"
+  }
+}
